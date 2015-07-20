@@ -1,0 +1,1 @@
+read a;read b;b=$b'5';IFS=1;set -- $b;c=$(($#-1));IFS=2;set -- $b;d=$(($#-1));IFS=3;set -- $b;e=$(($#-1));IFS=4;set -- $b;f=$(($#-1));g=`echo "$c $d $e $f"|tr " " "\n"|sort -r|head -1`;h=`echo "$c $d $e $f"|tr " " "\n"|sort -r|tail -1`;echo "$g $h"

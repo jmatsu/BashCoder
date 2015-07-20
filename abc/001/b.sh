@@ -1,0 +1,1 @@
+read a;b=`expr $a / 100`;{ [ $a -lt 100 ]&&echo 00;}||{ [ $a -lt 5001 ]&&{ [ ${#b} -eq 2 ]&&echo $b||echo 0$b; };}||{ [ $a -lt 30001 ]&&echo `expr $b / 10 + 50`;}||{ [ $a -lt 70001 ]&&echo `expr $b / 10 / 5 - 30 / 5 + 80`;}||echo 89

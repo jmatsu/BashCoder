@@ -1,0 +1,1 @@
+read a;b=0;for c in `seq 1 $a`;do b=`expr $c + $b`;done;expr $b \* 10000 / $c

@@ -1,0 +1,1 @@
+read a;read b;expr $a - $b
