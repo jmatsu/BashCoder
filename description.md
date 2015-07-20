@@ -10,14 +10,14 @@ e.g. input string is "foo"
 
 ### for 
 
-    $ for i in `1 seq N`
+    $ for i in `0 seq $(expr N - 1)`
     do
         echo "$i"
     done
 
 ### while
 
-    $ i=0;while [ $i -eq N ]
+    $ i=0;while [ ! $i -eq N ]
     do
         echo "$i"
         i=`expr $i + 1`
