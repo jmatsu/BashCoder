@@ -1,5 +1,12 @@
+#!/usr/bin/env bash
+
+echo "Begin number:"
 read begin
+echo ""
+echo "End number:"
 read end
+echo ""
+echo "Content type {arc, abc}:"
 read type
 
 function make_all() {
