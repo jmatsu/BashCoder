@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+echo "Begin number:"
+read begin
+echo ""
+echo "End number:"
+read end
+echo ""
+echo "Content type {arc, abc}:"
+read type
+
+
+function make_all() {
+for i in `seq $begin $end`
+do
+[ ${#i} -eq 1 ] && i="0$i"
+[ ${#i} -eq 2 ] && i="0$i"
+mkdir $i
+done
+}
+
+cd $type
+make_all
