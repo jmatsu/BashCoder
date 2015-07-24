@@ -1,18 +1,16 @@
 # BashCoder
 Bash solutions of [AtCoder](http://atcoder.jp/) problems. 
 
-I also use the commands which can be used in AtCoder system. (include awk)
+I also use the commands which can be used in AtCoder system. (include awk, bc and etc)
 
 Probably, source codes will be not POSIX and depend on Bash features and its version.
 
-I would write for AtCoder Beginner Contest
-+ Prob. A - one-line script.
-+ Prob. B - one-line script.
-+ Prob. C - Not one-line script.
-+ Prob. D - Not one-line script.
+I would write my code without understandability and/or other xxx-ty.
 
-Also for AtCoder Regular Contest
-+ Prob. A - one-line script.
-+ Prob. B - Not one-line script.
-+ Prob. C - Not one-line script.
-+ Prob. D - Not one-line script.
+## Environment
+### AtCoder
+
+Details not published well
+
+    GNU bash, version4.2.25.
+    GNU awk
