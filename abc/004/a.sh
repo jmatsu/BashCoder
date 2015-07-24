@@ -1,0 +1,1 @@
+read a;echo "2*$a"|bc
