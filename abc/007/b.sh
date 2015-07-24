@@ -1,0 +1,1 @@
+read a;if [ "$a" = "a" ];then echo "-1";else echo 'a';fi

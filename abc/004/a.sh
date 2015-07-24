@@ -1,1 +1,1 @@
-read a;echo "2*$a"|bc
+awk '1,$0*=2'
