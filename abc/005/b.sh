@@ -1,0 +1,1 @@
+read a;tail -$a</dev/stdin|sort -n|head -1
