@@ -1,0 +1,1 @@
+ a=`tr "[:upper:]" "[:lower:]"`;echo ${a^}
