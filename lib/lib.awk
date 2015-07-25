@@ -68,3 +68,10 @@ function bit_complement(x,  b, i, k, q) {
   }
   return k
 }
+function zeroume(num, x) {
+  out=""
+  for (j=0;j<x-length(num);j++) {
+    out="0" out
+  }
+  return out num
+}
