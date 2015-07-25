@@ -56,3 +56,32 @@ e.g. input string is "foo"
     Foo
     Bar
     Buz
+
+## array
+    
+    initialize
+        foo=() #=> empty
+        bar=(1 2) #=> [0]=1,[1]=2
+        baz=("1" "2") #=> [0]="1",[1]="2"
+
+    add
+        foo+=( 1 ) #=> [0]=1
+        bar+=( 3 ) #=> [0]=1,[1]=2,[2]=3
+        baz+=( "3" ) #=> [0]="1",[1]="2",[2]="3"
+
+    show all
+        ${foo[@]}
+
+## Output of some commands in while-loop with side-effect
+    foo=()
+    while read a; do
+      foo+=("$a")
+    done < <(some commands)
+    echo "${foo[@]}" #=> path_foo,path_bar,path_baz
+
+    ### Bad
+    foo=()
+    commands|while read a; do
+      foo+=("$a")
+    done
+    echo "${foo[@]}" #=> empty

@@ -44,6 +44,22 @@ function bit_or(x, y,  b, i, k, qx, qy) {
   }
   return k
 }
+# hard code
+function bit_or_e(x, y) {
+  if(y==1) {
+    return 1+2*int(x/2)
+  }
+  if(y==2) {
+    return 2+4*int(x/4)+x%2
+  }
+  if(y==4) {
+    return 4+8*int(x/8)+(x%4)
+  }
+  if(y==8) {
+    return 8+(x%8)
+  }
+  return 0
+}
 function bit_xor(x, y,  b, i, k, qx, qy) {
   k = 0
   for (i = 15; i >= 0; i--) {
