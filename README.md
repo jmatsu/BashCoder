@@ -14,3 +14,5 @@ Details not published well
 
     GNU bash, version4.2.25.
     GNU awk
+        Bit operations unavailable
+        Multidimensional array unavailable
