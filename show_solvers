@@ -1,11 +1,16 @@
 #!/usr/bin/env bash
 
 function ls_if_has_files() {
-    [ ! -z "`ls $1`" ] && [ ! -z "`find $1 -type f -maxdepth 1`" ] && echo $1 && ls $1
+    [ ! -z "`ls $1`" ] && [ ! -z "`find $1 -type f -maxdepth 1`" ]  && {
+        cnt=`ls -1 $1 | wc -l | tr -d [:blank:]`
+        echo "$1 , solved : $cnt"
+        ls $1
+      }
 }
 
 function main() {
-    find . -type d -iregex ".*/[^.].*" -maxdepth 1 -print0 | xargs -0 -I% find % -type d -print0 | xargs -0 -I% bash -c "ls_if_has_files %"
+    find . -type d -iregex ".*/[^.(lib)].*" -maxdepth 1 -print0 | xargs -0 -I% find % -type d -print0 | xargs -0 -I% bash -c "ls_if_has_files %"
+    echo "Counts : `find . -type f -name "*.sh"|wc -l|tr -d '[:blank:]'`"
 }
 
 export -f ls_if_has_files
