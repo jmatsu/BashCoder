@@ -1,1 +1,1 @@
-read a;echo $a|tr " " "\n"|sort -n -r|head -1
+tr " " "\n"|sort -nr|head -1
