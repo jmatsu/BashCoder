@@ -23,7 +23,10 @@ define min(x, y) {
     return y
   }
 }
-define comb(m, n, t1, t2) {
+define comb(m, n) {
+  return comb_inner(m,n,0,0)
+}
+define comb_inner(m, n, t1, t2) {
     t1 = min(m - n, n);
 
     if (t1 < 0) {
@@ -32,7 +35,7 @@ define comb(m, n, t1, t2) {
 
     t2=(m*(m+1))/2+t1
     if(comb_cache[t2]==0) {
-      comb_cache[t2]=(comb(m-1,t1,0,0)+comb(m-1,t1-1,0,0))%$MOD_BASE
+      comb_cache[t2]=(comb_inner(m-1,t1,0,0)+comb_inner(m-1,t1-1,0,0))%$MOD_BASE
     }
 
     return comb_cache[t2];
@@ -48,23 +51,23 @@ scale=0
 xy=$X*$Y
 dpl=$D+$L
 ready_cache(xy)
-result=comb(xy,dpl,0,0)
+result=comb(xy,dpl)
 x1=$X-1
 x2=$X-2
 y1=$Y-1
 y2=$Y-2
 if(xy>dpl) {
-  result-=(2*comb($X*y1,dpl,0,0))
-  result-=(2*comb(x1*$Y,dpl,0,0))
-  result+=(4*comb(x1*y1,dpl,0,0))
-  result+=comb(x2*$Y,dpl,0,0)
-  result+=comb($X*y2,dpl,0,0)
-  result-=(2*comb(x1*y2,dpl,0,0))
-  result-=(2*comb(x2*y1,dpl,0,0))
-  result+=comb(x2*y2,dpl,0,0)
+  result-=(2*comb($X*y1,dpl))
+  result-=(2*comb(x1*$Y,dpl))
+  result+=(4*comb(x1*y1,dpl))
+  result+=comb(x2*$Y,dpl)
+  result+=comb($X*y2,dpl)
+  result-=(2*comb(x1*y2,dpl))
+  result-=(2*comb(x2*y1,dpl))
+  result+=comb(x2*y2,dpl)
   result%=$MOD_BASE
 }
-result*=comb(dpl,$L,0,0)
+result*=comb(dpl,$L)
 result%=$MOD_BASE
 result*=(($R-x1)*($C-y1))
 result%=$MOD_BASE
