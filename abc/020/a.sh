@@ -1,0 +1,1 @@
+read a;b=(, ABC chokudai);echo ${b[$a]}

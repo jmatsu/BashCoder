@@ -1,0 +1,1 @@
+read;rev|sort|rev

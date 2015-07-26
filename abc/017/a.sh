@@ -1,0 +1,1 @@
+awk '{s+=$1*$2/10}END{print s}'

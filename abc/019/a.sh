@@ -1,0 +1,1 @@
+tr " " "\n"|sort -n|head -2|tail -1

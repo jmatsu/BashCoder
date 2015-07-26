@@ -1,0 +1,1 @@
+rev|grep -n .|rev|sort -rn|grep -n .|rev|sort|rev|cut -c1

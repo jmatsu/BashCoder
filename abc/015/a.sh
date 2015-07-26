@@ -1,0 +1,1 @@
+awk '$0=length($0)$0'|sort -n|tr -d 0-9|tail -1
