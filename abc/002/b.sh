@@ -1,1 +1,1 @@
-read a;echo $a|tr -d "[aiueo]"
+tr -d "[aiueo]"
