@@ -1,1 +1,1 @@
-read a;read b;expr $a - $b
+read a;read b;echo "$a-$b"|bc

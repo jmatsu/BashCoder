@@ -1,0 +1,35 @@
+contest {
+    type "abc"
+    title "AtCoder Beginner Contest"
+    path "~/Projects/procon/atcoder/BashCoder/abc"
+    url 'http://#{@type}#{@tasks.revision}.contest.atcoder.jp/'
+
+    tasks {
+        revision "022"
+        path_rel "022"
+
+        task ("a") {
+            path_rel "a.sh"
+            lang "bash"
+            memo "A"
+        }
+
+        task ("b") {
+            path_rel "b.sh"
+            lang "bash"
+            memo "B"
+        }
+
+        task ("c") {
+            path_rel "c.sh"
+            lang "bash"
+            memo "C"
+        }
+
+        task ("d") {
+            path_rel "d.sh"
+            lang "bash"
+            memo "D"
+        }
+    }
+}
