@@ -1,0 +1,3 @@
+#!/usr/local/bin/bash
+
+/usr/local/bin/bash -x ./abc/$1/$2.sh

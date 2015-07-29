@@ -1,0 +1,55 @@
+echo "Begin number:"
+read begin
+echo ""
+echo "End number:"
+read end
+echo ""
+echo "Content type {arc, abc}:"
+read type
+
+for revision in `seq $begin $end`
+do
+[ ${#revision} -eq 1 ] && revision="0$revision"
+[ ${#revision} -eq 2 ] && revision="0$revision"
+
+contest="Regular"
+
+[ "$type" = "abc" ] && contest="Beginner"
+
+echo 'contest {
+    type "${type}"
+    title "AtCoder ${contest} Contest"
+    path "~/Projects/procon/atcoder/BashCoder/${type}"
+    url '\''http://#{@type}#{@tasks.revision}.contest.atcoder.jp/'\''
+
+    tasks {
+        revision "${revision}"
+        path_rel "${revision}"
+
+        task ("a") {
+            path_rel "a.sh"
+            lang "bash"
+            memo "A"
+        }
+
+        task ("b") {
+            path_rel "b.sh"
+            lang "bash"
+            memo "B"
+        }
+
+        task ("c") {
+            path_rel "c.sh"
+            lang "bash"
+            memo "C"
+        }
+
+        task ("d") {
+            path_rel "d.sh"
+            lang "bash"
+            memo "D"
+        }
+    }
+}'|sed -e 's/${type}/'${type}'/g' -e 's/${revision}/'${revision}'/g' -e 's/${contest}/'${contest}'/g' > ${type}/${revision}/${revision}.gpst
+
+done
