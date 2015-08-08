@@ -1,22 +1,11 @@
 read a
 b=`echo "
-  a=$a
-  x=1;y=1;t=0
-  for(t=0;y<a;t++){
-    x*=2
-    y=2*y+1
+  scale=0;n=$a;x=1
+  for(b=n+1;b>1;){
+    b=(b+x)/2
+    x=(x+1)%2
   }
 
-  c=t%2
-
-  for(m=1;t>0;t--){
-    m=2*m+((t+1)%2)
-  }
-
-  if(c==0&&m<=a&&a<=y||c==1&&x<=a&&a<m){
-    0
-  }else{
-    1
-  }
+  x
 "|bc`
 [ $b -eq 0 ] && echo "Aoki" || echo "Takahashi"
