@@ -1,0 +1,1 @@
+head -1|tr \  \\n|sort|uniq -c|sort -n|head -1|awk '$0=$2'
