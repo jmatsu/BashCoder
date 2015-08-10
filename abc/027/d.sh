@@ -1,27 +1,21 @@
-tail -1|rev|sed 's/\(.\)/\1 /g'|tr \  \\n|awk '
-BEGIN { x=0;i=0 }
+rev|sed 's/\(.\)/\1 /g'|tr \  \\n|awk '
+BEGIN { x=0;i=0;m=0 }
 {
   if($0=="+"){
     x++
   }else if($0=="-"){
     x--
   }else if($0=="M"){
-    m[i]=x
+    if(m>x)m=x
+    print x
     i++
   }
 }
-END {
-  mm=1000000000
-  for(j=0;j<i;j++){
-    if(mm>m[j]){ mm=m[j] }
-    print m[j]
-  }
-  print mm-1" "i
-}
+END { print m-1" "i/2+1 }
 '|sort -n|awk '
-BEGIN { e=1000000000000 }
-NR==1 { e=$2/2+1 }
-1<NR&&NR<=e { s+=$0 }
-e<NR { t+=$0 }
-END { print t-s }
+BEGIN { s=0;e=1 }
+NR==1 { e=$2 }
+1<NR&&NR<=e { s-=$0 }
+e<NR { s+=$0 }
+END { print s }
 '
