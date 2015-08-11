@@ -1,0 +1,17 @@
+function at_test() {
+  local contest=`echo $PWD|tr \/ \ |awk '$0=$(NF-1)'`
+  local rev=`echo $PWD|tr \/ \ |awk '$0=$NF'`
+  atcodee test --run -p .. ${contest} ${rev} $1 -f $1.sh -c /usr/local/bin/bash
+}
+
+function at_submit() {
+  local contest=`echo $PWD|tr \/ \ |awk '$0=$(NF-1)'`
+  local rev=`echo $PWD|tr \/ \ |awk '$0=$NF'`
+  atcodee submit -p .. ${contest} ${rev} $1 -f $1.sh -c /usr/local/bin/bash
+}
+
+function at_submit_wo_test() {
+  local contest=`echo $PWD|tr \/ \ |awk '$0=$(NF-1)'`
+  local rev=`echo $PWD|tr \/ \ |awk '$0=$NF'`
+  atcodee submit -p .. ${contest} ${rev} $1 -f $1.sh -c /usr/local/bin/bash --no-test
+}
