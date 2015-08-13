@@ -7,6 +7,8 @@ Probably, source codes will be not POSIX and depend on Bash features and its ver
 
 I would write my code without understandability and/or other xxx-ty.
 
+# 正直疲れた
+
 ## Environment
 ### AtCoder
 
