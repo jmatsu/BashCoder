@@ -9,8 +9,8 @@ function ls_if_has_files() {
 }
 
 function main() {
-    find . -type d -iregex ".*/[^.(lib)].*" -maxdepth 1 -print0 | xargs -0 -I% find % -type d -print0 | xargs -0 -I% bash -c "ls_if_has_files %"
-    echo "Counts : `find . -type f -name "*.sh"|wc -l|tr -d '[:blank:]'`"
+    find . -type d -iregex ".*/[^.(lib)(cf)].*" -maxdepth 1 -print0 | xargs -0 -I% find % -type d -iregex ".*/[^.(tests)].*" -maxdepth 1 -print0 | xargs -0 -I% bash -c "ls_if_has_files %"
+    echo "Counts : `find . -type d -iregex ".*/[^.(lib)(cf)].*" -maxdepth 1 -print0 | xargs -0 -I% find % -type d -iregex ".*/[^.(tests)].*" -maxdepth 1 -print0 | xargs -0 -n 1 -I% find % -type f -iregex ".*/.*\.sh"|sed '/^$/d'|sort|uniq|wc -l|tr -d '[:blank:]'`"
 }
 
 export -f ls_if_has_files
